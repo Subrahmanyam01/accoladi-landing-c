@@ -1,0 +1,304 @@
+<a class="skip-link" href="#main-content">
+  Skip to main content
+</a>
+
+<header class="site-header" id="siteHeader">
+  <nav class="navbar" aria-label="Main navigation">
+    <a class="nav-brand" href="#home" aria-label="Accoladi home">
+      <span class="nav-brand-text">
+        <strong>Accoladi</strong>
+      </span>
+    </a>
+
+    <div class="nav-links" aria-label="Primary navigation">
+      <a href="#students">Students</a>
+      <a href="#educators">Educators</a>
+      <a href="#recruiters">Recruiters</a>
+      <a href="#directors">Directors</a>
+    </div>
+
+    <form class="nav-search" role="search" (ngSubmit)="onSearch(searchInput.value, $event)">
+      <span class="nav-search-icon material-symbols-rounded" aria-hidden="true">search</span>
+      <input
+        #searchInput
+        type="search"
+        name="q"
+        placeholder="Search resources..."
+        aria-label="Search resources"
+      >
+    </form>
+
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="navMenu"
+      aria-label="Open navigation menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-menu" id="navMenu">
+      <a href="#students">Students</a>
+      <a href="#educators">Educators</a>
+      <a href="#recruiters">Recruiters</a>
+      <a href="#directors">Directors</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content" class="home-page">
+  <section class="home-hero" id="home" aria-labelledby="heroTitle">
+    <div class="home-shell">
+      <div class="home-intro reveal">
+        <h1 id="heroTitle" class="home-title">
+          <span class="home-title-brand">ACCOLADI</span>
+          <span class="home-title-line">WHERE PERFORMING ARTS STUDENTS</span>
+          <span class="home-title-line">GET SEEN, KNOWN, AND <span class="home-title-chosen">CHOSEN.</span></span>
+        </h1>
+        <p class="home-subtitle">
+          Because information inspires. Relationships create momentum.
+        </p>
+
+        <div class="home-highlights" aria-label="Homepage highlights">
+          <span class="home-highlight">
+            <span class="home-highlight-mark" aria-hidden="true">
+              <span class="material-symbols-rounded">check</span>
+            </span>
+            Build your profile
+          </span>
+          <span class="home-highlight">
+            <span class="home-highlight-mark" aria-hidden="true">
+              <span class="material-symbols-rounded">check</span>
+            </span>
+            Get discovered
+          </span>
+          <span class="home-highlight">
+            <span class="home-highlight-mark" aria-hidden="true">
+              <span class="material-symbols-rounded">check</span>
+            </span>
+            Connect with the right people
+          </span>
+          <span class="home-highlight">
+            <span class="home-highlight-mark" aria-hidden="true">
+              <span class="material-symbols-rounded">check</span>
+            </span>
+            Open doors to opportunity
+          </span>
+        </div>
+      </div>
+
+      <section class="home-cards-section reveal-on-scroll" id="students" aria-label="Accoladi pathways">
+        <div class="home-cards-grid">
+          @for (card of [
+            {
+              title: 'Students - Music',
+              copy: 'Showcase your talent and get discovered by colleges looking for you.',
+              button: 'Create Your Profile',
+              href: '/students/music',
+              icon: 'music_note',
+              image: 'assets/card-images/music.jpg',
+              position: 'center 18%',
+            },
+            {
+              title: 'Students - Dance',
+              copy: 'Highlight your training and connect with programs that fit your goals.',
+              button: 'Create Your Profile',
+              href: '/students/dance',
+              icon: 'sports_gymnastics',
+              image: 'assets/card-images/dancer.png',
+              position: 'center top',
+            },
+            {
+              title: 'Students - Drama',
+              copy: 'Share your story and get matched with schools that value your talent.',
+              button: 'Create Your Profile',
+              href: '/students/drama',
+              icon: 'theater_comedy',
+              image: 'assets/card-images/drama.webp',
+              position: 'center top',
+            },
+            {
+              title: 'Recruiters',
+              copy: 'Find and connect with qualified performing arts students nationwide.',
+              button: 'Search Students',
+              href: '/recruiters',
+              icon: 'groups',
+              image: 'assets/card-images/recruiter.jpg',
+              position: 'center center',
+            },
+            {
+              title: 'Educators',
+              copy: 'Inspire your students and open doors to scholarships and opportunities.',
+              button: 'Access Resources',
+              href: '/educators/teachers',
+              icon: 'school',
+              image: 'assets/card-images/teacher2.png',
+              position: 'center 20%',
+            },
+            {
+              title: 'Fine Arts Directors',
+              copy: 'Build strong programs with data-driven insights and recruitment pipelines.',
+              button: 'View Solutions',
+              href: '/educators/fine-arts',
+              icon: 'account_balance',
+              image: 'assets/card-images/finearts.png',
+              position: 'center center',
+            }
+          ]; track card.title) {
+            <article class="home-card" [style.--card-bg]="'url(' + card.image + ')'">
+              <img
+                class="home-card-image"
+                [src]="card.image"
+                [style.object-position]="card.position"
+                alt=""
+                aria-hidden="true"
+              >
+              <div class="home-card-badge" aria-hidden="true">
+                <span class="material-symbols-rounded">{{ card.icon }}</span>
+              </div>
+
+              <div class="home-card-content">
+                <div class="home-card-copy">
+                  <h2>{{ card.title }}</h2>
+                  <p>{{ card.copy }}</p>
+                </div>
+
+                <div class="home-card-actions">
+                  <a class="home-card-button" [routerLink]="card.href">{{ card.button }}</a>
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+      </section>
+
+      <section class="home-stats reveal-on-scroll" id="recruiters" aria-label="Accoladi statistics">
+        @for (stat of [
+          { icon: 'groups', value: '150,000+', label: 'Students' },
+          { icon: 'account_balance', value: '500+', label: 'College Programs' },
+          { icon: 'workspace_premium', value: '125,000+', label: 'Scholarships Earned' },
+          { icon: 'handshake', lines: ['Real Connections', 'Real Opportunities'] }
+        ]; track $index) {
+          <div class="home-stat">
+            <span class="home-stat-icon material-symbols-rounded" aria-hidden="true">{{ stat.icon }}</span>
+            <div class="home-stat-copy">
+              @if (stat.lines) {
+                <span>{{ stat.lines[0] }}</span>
+                <span>{{ stat.lines[1] }}</span>
+              } @else {
+                <strong>{{ stat.value }}</strong>
+                <span>{{ stat.label }}</span>
+              }
+            </div>
+          </div>
+        }
+      </section>
+
+    </div>
+
+    <section class="home-video-stage reveal-on-scroll" aria-labelledby="featuredVideoTitle">
+      <h2 id="featuredVideoTitle" class="sr-only">Accoladi featured video</h2>
+      <video
+        class="home-video"
+        id="heroVideo"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      >
+        <source src="assets/hero-video.mp4" type="video/mp4">
+      </video>
+      <div class="home-video-overlay" aria-hidden="true"></div>
+
+      <section class="home-cta-row reveal-on-scroll" id="directors" aria-label="Primary links">
+        <a class="home-cta" routerLink="/what">What We Do</a>
+        <a class="home-cta" routerLink="/how">How We Do It</a>
+        <a class="home-cta" routerLink="/why">Why We Do It</a>
+      </section>
+    </section>
+  </section>
+
+  <section class="community-strip" aria-label="Accoladi audience and reach">
+    <div class="community-strip-track" aria-hidden="true">
+      <span>The United States is the world’s greatest developer of performing arts talent - with more than 700 U.S. colleges, universities, and conservatories granting music degrees; more than 350 granting dance degrees; and more than 650 granting theatre and drama degrees.</span>
+    </div>
+
+    <div class="community-strip-track" aria-hidden="true">
+      <span>The United States is the world’s greatest developer of performing arts talent - with more than 700 U.S. colleges, universities, and conservatories granting music degrees; more than 350 granting dance degrees; and more than 650 granting theatre and drama degrees.</span>
+    </div>
+  </section>
+
+  <section class="testimonial-section" id="why" aria-labelledby="testimonialTitle">
+    <div class="testimonial-shell reveal-on-scroll">
+      <!-- Fixed inline style background path -->
+      <div
+        class="testimonial-media"
+        role="img"
+        aria-label="Professional musician portrait"
+        style="--testimonial-bg: url('assets/card-images/AJ-Neubert.png');"
+      ></div>
+
+      <div class="testimonial-content">
+        <blockquote class="testimonial-quote">
+          <h2 id="testimonialTitle">"Accoladi was instrumental in navigating my transition to the professional world."</h2>
+          <p class="testimonial-copy">Accoladi empowered me to focus on my craft while they handled the complexities of college discovery and scholarship matching. Today, as a Principal Bassoonist, I look back at their platform as the catalyst for my collegiate success.</p>
+        </blockquote>
+
+        <p class="testimonial-author">A.J. Neubert</p>
+        <p class="testimonial-role">Principal Bassoonist - Charlotte Symphony</p>
+        <a class="testimonial-button" href="https://accoladi.com/aj-neubert">See A.J's Profile</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer" style="background-image: url('images/gradient-bg.webp');">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand-link" routerLink="/">
+          <img src="images/logo.webp" alt="Accoladi logo" class="brand-logo">
+        </a>
+        <address class="footer-address under-logo">
+          <p>2557 Treetop Dr</p>
+          <p>Nashville, TN 37013</p>
+          <p>615-393-6116</p>
+        </address>
+      </div>
+
+      <div class="footer-links">
+        <h4 class="footer-title">Quick Links</h4>
+        <ul>
+          <li><a routerLink="/newsletter-signup">Newsletter Sign up</a></li>
+          <li><a routerLink="/contact">Contact us</a></li>
+          <li>
+            <a
+              href="https://cdn.prod.website-files.com/6817b051f69dc64dbdb788c6/6817b051f69dc64dbdb78976_Acoladi%20Terms%20of%20Use%20(1).pdf"
+              target="_blank"
+            >Terms and Conditions</a>
+          </li>
+          <li><a routerLink="/privacy-policy">Privacy Policy</a></li>
+          <li><a routerLink="/security-policy">Security Policy</a></li>
+          <li><a routerLink="/faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4 class="footer-title">Network Links</h4>
+        <ul>
+          <li><a href="https://www.accoladirecruiter.com/" target="_blank">Accoladi Recruiter</a></li>
+          <li><a href="https://www.accoladifineartsdirector.com/" target="_blank">Accoladi Fine Arts Director</a></li>
+          <li><a href="https://www.accoladiteacher.com/" target="_blank">Accoladi Teacher</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom container">
+      <p>&copy; {{ currentYear() }} Accoladi. All rights reserved.</p>
+    </div>
+  </footer>
+
+</main>

@@ -1,13 +1,15 @@
 {
-  "name": "accoladi-landing-c",
+  "name": "accoladi-landing-b",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --poll=2000",
+    "dev": "node -e \"const fs=require('fs');const path=require('path');const dir='.angular/cache';if(fs.existsSync(dir)){fs.rmSync(dir,{recursive:true,force:true})}\" && ng serve --poll=2000",
     "build": "ng build",
+    "deploy": "ng deploy",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:accoladi-landing-c": "node dist/accoladi-landing-c/server/server.mjs"
+    "serve:ssr:accoladi-landing-b": "node dist/accoladi-landing-b/server/server.mjs"
   },
   "private": true,
   "packageManager": "npm@11.2.0",
@@ -31,6 +33,7 @@
     "@tailwindcss/postcss": "^4.1.12",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
+    "angular-cli-ghpages": "^3.1.0",
     "jsdom": "^28.0.0",
     "postcss": "^8.5.3",
     "prettier": "^3.8.1",

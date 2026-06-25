@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "accoladi-landing-c": {
+    "accoladi-landing-b": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -24,9 +24,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "styles": ["src/styles.css"],
             "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {
@@ -38,6 +36,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/accoladi-landing-c/",
               "budgets": [
                 {
                   "type": "initial",
@@ -64,16 +63,19 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "accoladi-landing-c:build:production"
+              "buildTarget": "accoladi-landing-b:build:production"
             },
             "development": {
-              "buildTarget": "accoladi-landing-c:build:development"
+              "buildTarget": "accoladi-landing-b:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
